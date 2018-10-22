@@ -10842,7 +10842,8 @@ function store_points(x, y, k) {
         settings = storage.settings;
         data = storage.data;
         for (var reg in regs) {
-            regs[reg].setData(storage.data);
+        	if (typeof regs[reg].setData === 'function')
+            	regs[reg].setData(storage.data);
         }
     }
 
